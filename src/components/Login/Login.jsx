@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { UsuariosContext } from './UsuariosContext'
 
 function Login() {
-  const { usuarios, setUsuarioActual } = useContext(UsuariosContext)
+  const { usuarios, setUsuarioActual, setIntentosLogin } = useContext(UsuariosContext)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -12,6 +12,12 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault()
     const usuario = usuarios.find(u => u.correo === email && u.password === password)
+    const nuevoIntento = {
+  correo: email,
+  fecha: new Date().toISOString(),
+  exitoso: !!usuario,
+}
+setIntentosLogin(prev => [...prev, nuevoIntento])
 
     if (!usuario) {
       setError('Correo o contraseña incorrectos')
