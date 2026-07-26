@@ -1,13 +1,30 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
+import { UsuariosContext } from './UsuariosContext'
 
 function Login() {
+  const { usuarios, setUsuarioActual } = useContext(UsuariosContext)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Intento de login:', email, password)
-    // Aquí después conectas la lógica real (validar contra la base de datos)
+    const usuario = usuarios.find(u => u.correo === email && u.password === password)
+
+    if (!usuario) {
+      setError('Correo o contraseña incorrectos')
+      return
+    }
+
+    setUsuarioActual(usuario)
+
+    if (usuario.rol === 'Cliente') {
+      navigate('/catalogo')
+    } else {
+      navigate('/admin')
+    }
   }
 
   return (
@@ -16,24 +33,18 @@ function Login() {
       <form onSubmit={handleSubmit}>
         <div>
           <label>Correo electrónico</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         </div>
         <div>
           <label>Contraseña</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
         <button type="submit">Ingresar</button>
       </form>
+      <Link to="/registro">Crear cuenta</Link>
+      <br />
+      <Link to="/recuperar">Olvidé mi contraseña</Link>
     </div>
   )
 }
