@@ -21,20 +21,24 @@ function Mantenimiento() {
     alert('Datos actualizados')
   }
 
-  if (!usuarioActual) return <p>Debes iniciar sesión primero</p>
+  if (!usuarioActual) return <p style={{ textAlign: 'center', marginTop: '2rem' }}>Debes iniciar sesión primero</p>
+
+  const inputStyle = { width: '100%', boxSizing: 'border-box', marginBottom: '8px', padding: '8px' }
 
   return (
-    <div>
-      <h2>Editar Perfil</h2>
-      <p>ID: {usuarioActual.id} (no editable)</p>
-      <p>Correo: {usuarioActual.correo} (no editable)</p>
-      <form onSubmit={handleSubmit}>
-        <input name="nombre" value={form.nombre} onChange={handleChange} />
-        <input name="apellidos" value={form.apellidos} onChange={handleChange} />
-        <input name="telefono" value={form.telefono} onChange={handleChange} />
-        <input name="direccion" value={form.direccion} onChange={handleChange} />
-        <button type="submit">Guardar cambios</button>
-      </form>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
+      <div style={{ backgroundColor: '#F4E9E9', padding: '2rem', borderRadius: '12px', width: '280px' }}>
+        <h2 style={{ textAlign: 'center', color: '#333333' }}>Editar Perfil</h2>
+        <p style={{ fontSize: '11px', color: '#888', textAlign: 'center' }}>ID: {usuarioActual.id} (no editable)</p>
+        <p style={{ fontSize: '11px', color: '#888', textAlign: 'center', marginBottom: '14px' }}>Correo: {usuarioActual.correo} (no editable)</p>
+        <form onSubmit={handleSubmit}>
+          <input name="nombre" value={form.nombre} onChange={handleChange} style={inputStyle} />
+          <input name="apellidos" value={form.apellidos} onChange={handleChange} style={inputStyle} />
+          <input name="telefono" value={form.telefono} onChange={handleChange} style={inputStyle} />
+          <input name="direccion" value={form.direccion} onChange={handleChange} style={inputStyle} />
+          <button type="submit" style={{ width: '100%' }}>Guardar cambios</button>
+        </form>
+      </div>
     </div>
   )
 }

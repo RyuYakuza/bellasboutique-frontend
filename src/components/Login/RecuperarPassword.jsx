@@ -24,13 +24,22 @@ function RecuperarPassword() {
   }
 
   return (
-    <div>
-      <h2>Recuperar Contraseña</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="email" placeholder="Correo" value={correo} onChange={(e) => setCorreo(e.target.value)} required />
-        <button type="submit">Recuperar</button>
-      </form>
-      {mensaje && <p>{mensaje}</p>}
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
+      <div style={{ backgroundColor: '#F4E9E9', padding: '2rem', borderRadius: '12px', width: '280px' }}>
+        <h2 style={{ textAlign: 'center', color: '#333333' }}>Recuperar Contraseña</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Correo"
+            value={correo}
+            onChange={(e) => setCorreo(e.target.value)}
+            required
+            style={{ width: '100%', boxSizing: 'border-box', marginBottom: '10px', padding: '8px' }}
+          />
+          <button type="submit" style={{ width: '100%' }}>Recuperar</button>
+        </form>
+        {mensaje && <p style={{ fontSize: '13px', marginTop: '10px' }}>{mensaje}</p>}
+      </div>
     </div>
   )
 }

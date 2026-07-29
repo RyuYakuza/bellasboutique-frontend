@@ -7,7 +7,7 @@ export const usuariosIniciales = [
     correo: "juan@correo.com",
     telefono: "88887777",
     direccion: "San José",
-    password: "Abc123!@",
+    password: "dpfif9kv",
     rol: "Cliente",
   },
 ]
