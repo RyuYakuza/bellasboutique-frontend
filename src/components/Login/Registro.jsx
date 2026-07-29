@@ -38,25 +38,29 @@ function Registro() {
     navigate('/')
   }
 
+  const inputStyle = { width: '100%', boxSizing: 'border-box', marginBottom: '8px', padding: '8px' }
+
   return (
-    <div>
-      <h2>Registro de Usuario</h2>
-      <form onSubmit={handleSubmit}>
-        <input name="cedula" placeholder="Cédula" onChange={handleChange} required />
-        <input name="nombre" placeholder="Nombre" onChange={handleChange} required />
-        <input name="apellidos" placeholder="Apellidos" onChange={handleChange} required />
-        <input name="correo" type="email" placeholder="Correo" onChange={handleChange} required />
-        <input name="telefono" placeholder="Teléfono" onChange={handleChange} required />
-        <input name="direccion" placeholder="Dirección" onChange={handleChange} required />
-        <input name="password" type="password" placeholder="Contraseña" onChange={handleChange} required />
-        <select name="rol" onChange={handleChange}>
-          <option value="Cliente">Cliente</option>
-          <option value="Vendedor">Vendedor</option>
-          <option value="Administrador">Administrador</option>
-        </select>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">Registrarse</button>
-      </form>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
+      <div style={{ backgroundColor: '#F4E9E9', padding: '2rem', borderRadius: '12px', width: '300px' }}>
+        <h2 style={{ textAlign: 'center', color: '#333333' }}>Registro de Usuario</h2>
+        <form onSubmit={handleSubmit}>
+          <input name="cedula" placeholder="Cédula" onChange={handleChange} required style={inputStyle} />
+          <input name="nombre" placeholder="Nombre" onChange={handleChange} required style={inputStyle} />
+          <input name="apellidos" placeholder="Apellidos" onChange={handleChange} required style={inputStyle} />
+          <input name="correo" type="email" placeholder="Correo" onChange={handleChange} required style={inputStyle} />
+          <input name="telefono" placeholder="Teléfono" onChange={handleChange} required style={inputStyle} />
+          <input name="direccion" placeholder="Dirección" onChange={handleChange} required style={inputStyle} />
+          <input name="password" type="password" placeholder="Contraseña" onChange={handleChange} required style={inputStyle} />
+          <select name="rol" onChange={handleChange} style={inputStyle}>
+            <option value="Cliente">Cliente</option>
+            <option value="Vendedor">Vendedor</option>
+            <option value="Administrador">Administrador</option>
+          </select>
+          {error && <p style={{ color: 'red', fontSize: '13px' }}>{error}</p>}
+          <button type="submit" style={{ width: '100%' }}>Registrarse</button>
+        </form>
+      </div>
     </div>
   )
 }

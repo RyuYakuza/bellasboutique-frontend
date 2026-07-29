@@ -13,11 +13,11 @@ function Login() {
     e.preventDefault()
     const usuario = usuarios.find(u => u.correo === email && u.password === password)
     const nuevoIntento = {
-  correo: email,
-  fecha: new Date().toISOString(),
-  exitoso: !!usuario,
-}
-setIntentosLogin(prev => [...prev, nuevoIntento])
+      correo: email,
+      fecha: new Date().toISOString(),
+      exitoso: !!usuario,
+    }
+    setIntentosLogin(prev => [...prev, nuevoIntento])
 
     if (!usuario) {
       setError('Correo o contraseña incorrectos')
@@ -34,23 +34,49 @@ setIntentosLogin(prev => [...prev, nuevoIntento])
   }
 
   return (
-    <div>
-      <h2>Iniciar Sesión</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Correo electrónico</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minHeight: '100vh'
+    }}>
+      <div style={{
+        backgroundColor: '#F4E9E9',
+        padding: '2rem',
+        borderRadius: '12px',
+        width: '280px'
+      }}>
+        <h2 style={{ textAlign: 'center', color: '#333333' }}>Iniciar Sesión</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Correo electrónico</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              style={{ width: '100%', boxSizing: 'border-box', marginBottom: '10px' }}
+            />
+          </div>
+          <div>
+            <label>Contraseña</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              style={{ width: '100%', boxSizing: 'border-box', marginBottom: '14px' }}
+            />
+          </div>
+          {error && <p style={{ color: 'red' }}>{error}</p>}
+          <button type="submit" style={{ width: '100%' }}>Ingresar</button>
+        </form>
+        <div style={{ textAlign: 'center', marginTop: '12px' }}>
+          <Link to="/registro" style={{ color: '#D88C9A', fontSize: '13px' }}>Crear cuenta</Link>
+          <br />
+          <Link to="/recuperar" style={{ color: '#D88C9A', fontSize: '13px' }}>Olvidé mi contraseña</Link>
         </div>
-        <div>
-          <label>Contraseña</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">Ingresar</button>
-      </form>
-      <Link to="/registro">Crear cuenta</Link>
-      <br />
-      <Link to="/recuperar">Olvidé mi contraseña</Link>
+      </div>
     </div>
   )
 }
