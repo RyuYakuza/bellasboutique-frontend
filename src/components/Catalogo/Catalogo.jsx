@@ -11,9 +11,9 @@ function Catalogo() {
 
   const productos = [
     { id: 1, nombre: 'Vestido Elegante', descripcion: 'Vestido de algodon flores', precio: 80, stock: 12, categoria: 'Ropa', proveedor: 'Proveedor A', imagen: vestidoImg },
-    { id: 2, nombre: 'Zapatos de Cuero', descripcion: 'Zapatos formales negros', precio: 120, stock: 5, categoria: 'Calzado', proveedor: 'Proveedor AA', imagen: zapatosImg },
-    { id: 3, nombre: 'Bolso Moderno', descripcion: 'Bolso de cuero sintetico', precio: 60, stock: 2, categoria: 'Accesorios', proveedor: 'Proveedor A', imagen: bolsoImg },
-    { id: 4, nombre: 'Camisa Casual', descripcion: 'Camisa de algodon azul', precio: 40, stock: 20, categoria: 'Ropa', proveedor: 'Proveedor AAA', imagen: camisaImg },
+    { id: 2, nombre: 'Zapatos de Cuero', descripcion: 'Zapatos formales cafe oscuro', precio: 120, stock: 5, categoria: 'Calzado', proveedor: 'Proveedor AA', imagen: zapatosImg },
+    { id: 3, nombre: 'Bolso Moderno', descripcion: 'Bolso de cuero sintetico rojo', precio: 60, stock: 2, categoria: 'Accesorios', proveedor: 'Proveedor A', imagen: bolsoImg },
+    { id: 4, nombre: 'Camisa Casual', descripcion: 'Camisa color beige', precio: 40, stock: 20, categoria: 'Ropa', proveedor: 'Proveedor AAA', imagen: camisaImg },
     { id: 5, nombre: 'Sandalias Verano', descripcion: 'Sandalias comodas para playa', precio: 35, stock: 3, categoria: 'Calzado', proveedor: 'Proveedor AA', imagen: sandaliasImg },
     { id: 6, nombre: 'Reloj Deportivo', descripcion: 'Reloj resistente al agua', precio: 150, stock: 8, categoria: 'Accesorios', proveedor: 'Proveedor A', imagen: relojImg }
   ]
