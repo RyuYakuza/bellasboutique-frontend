@@ -26,7 +26,7 @@ function Catalogo() {
     <div style={{ backgroundColor: 'var(--color-secundario)', padding: '20px' }}>
       <h2 style={{ color: 'var(--color-primario)' }}>Catalogo de Productos</h2>
 
-      {/* Filtro por categoria */}
+     
       <select 
         value={filtro} 
         onChange={(e) => setFiltro(e.target.value)} 
@@ -44,7 +44,7 @@ function Catalogo() {
         <option value="Accesorios">Accesorios</option>
       </select>
 
-      {/* Mostrar productos */}
+     
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
         {productosFiltrados.map(p => (
           <div key={p.id} style={{ 
