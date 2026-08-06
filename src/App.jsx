@@ -3,6 +3,7 @@ import { UsuariosProvider } from './components/Login/UsuariosContext'
 import { useAutoLogout } from './components/Login/useAutoLogout'
 import Login from './components/Login/Login'
 import Catalogo from './components/Catalogo/Catalogo'
+import GestionProductos from './components/Catalogo/GestionProductos'
 import Carrito from './components/Carrito/Carrito'
 import Soporte from './components/Soporte/Soporte'
 import Registro from './components/Login/Registro'
@@ -21,7 +22,7 @@ function ContenidoApp() {
       <Route path="/registro" element={<Registro />} />
       <Route path="/recuperar" element={<RecuperarPassword />} />
       <Route path="/perfil" element={<Mantenimiento />} />
-      <Route path="/admin" element={<div>Panel de Administrador</div>} />
+      <Route path="/admin" element={<GestionProductos />} />
     </Routes>
   )
 }
