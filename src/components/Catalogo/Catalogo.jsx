@@ -1,13 +1,12 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import vestidoImg from '../../assets/vestido.png'
 import zapatosImg from '../../assets/zapatos.png'
 import bolsoImg from '../../assets/bolso.png'
 import camisaImg from '../../assets/camisa.png'
 import sandaliasImg from '../../assets/sandalias.png'
 import relojImg from '../../assets/reloj.png'
-
-function Catalogo() {
-  const [filtro, setFiltro] = useState('')
+import { CarritoContext } from '../Carrito/CarritoContext';
+import { Link } from 'react-router-dom'; // 1. Agrega esta importación
 
   const productos = [
     { id: 1, nombre: 'Vestido Elegante', descripcion: 'Vestido de algodon flores', precio: 80, stock: 12, categoria: 'Ropa', proveedor: 'Proveedor A', imagen: vestidoImg },
@@ -18,11 +17,47 @@ function Catalogo() {
     { id: 6, nombre: 'Reloj Deportivo', descripcion: 'Reloj resistente al agua', precio: 150, stock: 8, categoria: 'Accesorios', proveedor: 'Proveedor A', imagen: relojImg }
   ]
 
+function Catalogo() {
+  const [filtro, setFiltro] = useState('')
+
+  // 2. Extrae 'carrito' junto con la función
+  const { agregarAlCarrito, carrito } = useContext(CarritoContext); 
+
+  // 3. Calcula cuántos artículos hay en total (sumando las cantidades)
+  const cantidadTotal = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+
+
   const productosFiltrados = productos.filter(p =>
     filtro === '' || p.categoria === filtro
   )
 
+
   return (
+   <>
+    {/* Encabezado con el enlace al carrito */}
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'space-between', 
+        alignItems: 'center', 
+        marginBottom: '20px',
+        padding: '10px 20px',
+        backgroundColor: 'var(--color-blanco)',
+        borderBottom: '2px solid var(--color-primario)'
+      }}>
+        <h2 style={{ color: 'var(--color-primario)', margin: 0 }}></h2>
+        
+        <Link to="/carrito" style={{ 
+          textDecoration: 'none', 
+          backgroundColor: 'var(--color-primario)', 
+          color: 'white', 
+          padding: '10px 15px', 
+          borderRadius: '5px',
+          fontWeight: 'bold'
+        }}>
+          🛒 Ir al Carrito ({cantidadTotal})
+        </Link>
+      </div>
+
     <div style={{ backgroundColor: 'var(--color-secundario)', padding: '20px' }}>
       <h2 style={{ color: 'var(--color-primario)' }}>Catalogo de Productos</h2>
 
@@ -68,11 +103,17 @@ function Catalogo() {
               <p style={{ color: 'var(--color-primario)', fontWeight: 'bold' }}> Stock bajo</p>
             )}
 
-            <button disabled={p.stock === 0}>Anadir al carrito</button>
+            <button 
+              disabled={p.stock === 0}
+              onClick={() => agregarAlCarrito(p)}
+              >
+                Anadir al carrito
+            </button>
           </div>
         ))}
       </div>
     </div>
+    </> 
   )
 }
 
