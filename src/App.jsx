@@ -4,6 +4,7 @@ import { useAutoLogout } from './components/Login/useAutoLogout'
 import Login from './components/Login/Login'
 import Catalogo from './components/Catalogo/Catalogo'
 import Carrito from './components/Carrito/Carrito'
+import { CarritoProvider } from './components/Carrito/CarritoContext'; // <-- Importamos el Provider
 import Soporte from './components/Soporte/Soporte'
 import Registro from './components/Login/Registro'
 import RecuperarPassword from './components/Login/RecuperarPassword'
@@ -21,7 +22,6 @@ function ContenidoApp() {
       <Route path="/registro" element={<Registro />} />
       <Route path="/recuperar" element={<RecuperarPassword />} />
       <Route path="/perfil" element={<Mantenimiento />} />
-      <Route path="/admin" element={<div>Panel de Administrador</div>} />
     </Routes>
   )
 }
@@ -29,9 +29,11 @@ function ContenidoApp() {
 function App() {
   return (
     <UsuariosProvider>
-      <BrowserRouter>
-        <ContenidoApp />
-      </BrowserRouter>
+      <CarritoProvider>
+        <BrowserRouter>
+          <ContenidoApp />  
+        </BrowserRouter>
+      </CarritoProvider>
     </UsuariosProvider>
   )
 }
