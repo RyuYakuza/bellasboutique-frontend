@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Menu from "../Estructura/Menu";
 import { useNavigate } from 'react-router-dom';
 import { CarritoContext } from './CarritoContext'; // Ajusta la ruta si es necesario
 
@@ -9,7 +10,9 @@ const Carrito = () => {
   const total = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
 
   return (
+    
     <div style={{ padding: '40px 20px', maxWidth: '800px', margin: '0 auto', fontFamily: 'system-ui, sans-serif' }}>
+      <Menu />
       <h1 style={{ color: '#2c3e50', borderBottom: '2px solid #eaeaea', paddingBottom: '15px', marginBottom: '30px' }}>
         Tu Carrito de Compras
       </h1>
