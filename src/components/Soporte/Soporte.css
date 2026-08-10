@@ -1,0 +1,111 @@
+.soporte-nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 24px;
+  background: white;
+  border-bottom: 2px solid var(--color-secundario);
+}
+
+.soporte-nav a {
+  color: var(--color-primario);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.soporte-nav button {
+  margin-left: auto;
+  background: var(--color-primario);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.soporte-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.soporte-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.soporte-tabs button {
+  background: var(--color-secundario);
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.soporte-tabs button.activo {
+  background: var(--color-primario);
+  color: white;
+}
+
+.faq-item {
+  background: var(--color-secundario);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 4px 16px;
+}
+
+.faq-item button {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 12px 0;
+  font-weight: 600;
+  cursor: pointer;
+  color: #333;
+}
+
+.faq-item p {
+  padding-bottom: 12px;
+  margin: 0;
+  color: #555;
+}
+
+.encuesta-form, .chat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.encuesta-form input,
+.encuesta-form textarea,
+.encuesta-form select,
+.chat-box input {
+  padding: 10px;
+  border: 1px solid var(--color-secundario);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.encuesta-form button,
+.chat-box button {
+  background: var(--color-primario);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.chat-mensajes {
+  max-height: 300px;
+  overflow-y: auto;
+  background: var(--color-secundario);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+}

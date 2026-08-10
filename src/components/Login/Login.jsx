@@ -29,7 +29,7 @@ function Login() {
     if (usuario.rol === 'Cliente') {
       navigate('/catalogo')
     } else {
-      navigate('/admin')
+      navigate('/perfil')
     }
   }
 

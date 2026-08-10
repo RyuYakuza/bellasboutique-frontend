@@ -21,8 +21,31 @@ export const usuariosIniciales = [
     password: "Admin123!",
     rol: "Administrador",
   
-  } 
-   
+  },
+    {
+    id: 3,
+    cedula: "936492637",
+    nombre: "Carlos",
+    apellidos: "Gonzalez",
+    correo: "carlos@correo.com",
+    telefono: "88885555",
+   direccion: "Cartago",
+    password: "Suefdms8?",
+    rol: "Administrador",
+  
+  },
+    {
+    id: 4,
+    cedula: "976498234",
+    nombre: "Maria",
+    apellidos: "Salas",
+    correo: "maria@correo.com",
+    telefono: "99995555",
+   direccion: "Cartago",
+    password: "Hfdjsdw1!",
+    rol: "Vendedor",
+  
+  }
   
 ]
 

@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { UsuariosProvider } from './components/Login/UsuariosContext'
 import { useAutoLogout } from './components/Login/useAutoLogout'
+import { BitacoraProvider } from './components/Bitacora/BitacoraContext'
+import VerEncuestas from './components/Soporte/VerEncuestas'
+import Bitacora from './components/Bitacora/Bitacora'
 import Login from './components/Login/Login'
 import Catalogo from './components/Catalogo/Catalogo'
 import Carrito from './components/Carrito/Carrito'
@@ -21,20 +24,24 @@ function ContenidoApp() {
       <Route path="/soporte" element={<Soporte />} />
       <Route path="/registro" element={<Registro />} />
       <Route path="/recuperar" element={<RecuperarPassword />} />
+      <Route path="/encuestas-admin" element={<VerEncuestas />} />
       <Route path="/perfil" element={<Mantenimiento />} />
+      <Route path="/bitacora" element={<Bitacora />} />
     </Routes>
   )
 }
 
 function App() {
   return (
-    <UsuariosProvider>
-      <CarritoProvider>
-        <BrowserRouter>
-          <ContenidoApp />  
-        </BrowserRouter>
-      </CarritoProvider>
-    </UsuariosProvider>
+    <BitacoraProvider>
+      <UsuariosProvider>
+        <CarritoProvider>
+          <BrowserRouter>
+            <ContenidoApp />
+          </BrowserRouter>
+        </CarritoProvider>
+      </UsuariosProvider>
+    </BitacoraProvider>
   )
 }
 

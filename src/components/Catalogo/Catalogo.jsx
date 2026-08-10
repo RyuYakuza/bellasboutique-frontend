@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react'
+import Menu from "../Estructura/Menu";
 import vestidoImg from '../../assets/vestido.png'
 import zapatosImg from '../../assets/zapatos.png'
 import bolsoImg from '../../assets/bolso.png'
@@ -34,6 +35,7 @@ function Catalogo() {
 
   return (
    <>
+   <Menu />
     {/* Encabezado con el enlace al carrito */}
       <div style={{ 
         display: 'flex', 

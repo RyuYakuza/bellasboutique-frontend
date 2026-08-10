@@ -1,0 +1,47 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+  background: white;
+  border-bottom: 2px solid var(--color-secundario);
+}
+
+.app-header-logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--color-primario);
+  text-decoration: none;
+}
+
+.app-header-nav {
+  display: flex;
+  gap: 24px;
+}
+
+.app-header-nav a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.app-header-nav a:hover {
+  color: var(--color-primario);
+}
+
+.app-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-header-btn {
+  background: var(--color-primario);
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+}
