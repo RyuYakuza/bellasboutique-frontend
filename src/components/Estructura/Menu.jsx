@@ -21,6 +21,7 @@ function Menu() {
             <Link to="/perfil">Usuarios</Link>
             <Link to="/bitacora">Bitácora</Link>
             <Link to="/encuestas-admin">Encuestas</Link>
+            <Link to="/ventas">Ventas</Link>
           </>
         ) : (
           <>

@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { UsuariosContext } from './UsuariosContext'
+import { registrarAccion } from '../Bitacora/BitacoraHelper';
 
 function Login() {
   const { usuarios, setUsuarioActual, setIntentosLogin } = useContext(UsuariosContext)
@@ -21,10 +22,14 @@ function Login() {
 
     if (!usuario) {
       setError('Correo o contraseña incorrectos')
+      registrarAccion('Intento de login fallido', `Intento con el correo: ${email}`);
       return
     }
 
-    setUsuarioActual(usuario)
+    setUsuarioActual(usuario);
+    localStorage.setItem('usuario_actual', JSON.stringify(usuario));
+
+    registrarAccion('Inicio de sesión', `El usuario ${usuario.correo} inició sesión como ${usuario.rol}`);
 
     if (usuario.rol === 'Cliente') {
       navigate('/catalogo')

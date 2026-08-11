@@ -12,6 +12,8 @@ import Soporte from './components/Soporte/Soporte'
 import Registro from './components/Login/Registro'
 import RecuperarPassword from './components/Login/RecuperarPassword'
 import Mantenimiento from './components/Login/Mantenimiento'
+import Checkout from './components/Carrito/Checkout';
+import Ventas from './components/Carrito/Ventas';
 
 function ContenidoApp() {
   useAutoLogout()
@@ -27,6 +29,8 @@ function ContenidoApp() {
       <Route path="/encuestas-admin" element={<VerEncuestas />} />
       <Route path="/perfil" element={<Mantenimiento />} />
       <Route path="/bitacora" element={<Bitacora />} />
+      <Route path="/checkout" element={<Checkout />} />
+      <Route path="/ventas" element={<Ventas />} />
     </Routes>
   )
 }
